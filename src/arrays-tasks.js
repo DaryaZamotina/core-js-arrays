@@ -88,8 +88,14 @@ function findElement(arr, value) {
  *    findAllOccurrences([ null, undefined, null ], null) => 2
  *    findAllOccurrences([ true, 0, 1, 'true' ], true) => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  const indexes = [];
+  let ind = arr.indexOf(item);
+  while (ind !== -1) {
+    indexes.push(ind);
+    ind = arr.indexOf(item, ind + 1);
+  }
+  return indexes.length;
 }
 
 /**
@@ -104,8 +110,18 @@ function findAllOccurrences(/* arr, item */) {
  *    removeFalsyValues([ 1, 2, 3, 4, 5, 'false' ]) => [ 1, 2, 3, 4, 5, 'false' ]
  *    removeFalsyValues([ false, 0, NaN, '', undefined ]) => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
+function removeFalsyValues(arr) {
+  let arrNew = [];
+  arrNew = arr.map(
+    (elem) =>
+      !Number.isNaN(elem) &&
+      elem !== undefined &&
+      elem !== null &&
+      elem !== false &&
+      elem !== 0 &&
+      elem !== ''
+  );
+  return arrNew;
 }
 
 /**
@@ -522,8 +538,20 @@ function propagateItemsByPositionIndex(/* arr */) {
  *    shiftArray(['a', 'b', 'c', 'd'], -1) => ['b', 'c', 'd', 'a']
  *    shiftArray([10, 20, 30, 40, 50], -3) => [40, 50, 10, 20, 30]
  */
-function shiftArray(/* arr, n */) {
-  throw new Error('Not implemented');
+function shiftArray(arr, n) {
+  let begin;
+  let end;
+  if (n > 0) {
+    end = arr.slice(0, n + 1);
+    begin = arr.slice(n + 1);
+  }
+  if (n < 0) {
+    const num = n * -1;
+    begin = arr.slice(num);
+    end = arr.slice(0, num);
+  }
+  const result = begin.concat(end);
+  return result;
 }
 
 /**
@@ -540,6 +568,36 @@ function shiftArray(/* arr, n */) {
  *   sortDigitNamesByNumericOrder([ 'one','one','one','zero' ]) => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(/* arr */) {
+  /* if (arr = []) return [];
+  
+  function compare(obj) {
+  let obj = {
+    0: "zero", 
+    1: "one", 
+    2: "two", 
+    3: "three", 
+    4: "four", 
+    5: "five", 
+    6: "six", 
+    7: "seven", 
+    8: "eight", 
+    9: "nine", 
+  };
+
+  let keys = Object.keys(obj);
+  let values = Object.values(obj);
+
+  for (let key of keys) {
+    for (let elem of arr) {
+
+    }
+  }
+}
+
+ let result = [];
+ result = arr.sort(compare());
+
+ return result; */
   throw new Error('Not implemented');
 }
 
