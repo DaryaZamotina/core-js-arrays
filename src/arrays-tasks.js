@@ -305,8 +305,8 @@ function createNDimensionalArray(/* n, size */) {
  *    flattenArray(['a', ['b', ['c', 'd'], 'e'], 'f']) => ['a', 'b', 'c', 'd', 'e', 'f']
  *    flattenArray([1, 2, 3, 4]) => [1, 2, 3, 4]
  */
-function flattenArray(/* nestedArray */) {
-  throw new Error('Not implemented');
+function flattenArray(nestedArray) {
+  return nestedArray.flat(Infinity);
 }
 
 /**
@@ -356,6 +356,10 @@ function calculateBalance(/* arr */) {
  *    createChunks([10, 20, 30, 40, 50], 1) => [[10], [20], [30], [40], [50]]
  */
 function createChunks(/* arr, chunkSize */) {
+  /* let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    res[i].push(arr[i]);
+  } */
   throw new Error('Not implemented');
 }
 
