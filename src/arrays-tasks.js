@@ -304,6 +304,14 @@ function distinct(arr) {
  *    createNDimensionalArray(1, 1) => [0]
  */
 function createNDimensionalArray(/* n, size */) {
+  /* const arr = [];
+  for (let i = 0; i < size; i += 1) {
+    arr[i] = [];
+    for (j = 0; j < n; j += 1) {
+      arr[i][j] = 0;
+    }
+  }
+return arr; */
   throw new Error('Not implemented');
 }
 
@@ -354,8 +362,16 @@ function selectMany(arr, childrenSelector) {
  *   calculateBalance([ [ 10, 8 ], [ 1, 5 ] ])  => (10 - 8) + (1 - 5) = 2 + -4 = -2
  *   calculateBalance([]) => 0
  */
-function calculateBalance(/* arr */) {
-  throw new Error('Not implemented');
+function calculateBalance(arr) {
+  let sum = 0;
+
+  const resArr = arr.flat();
+
+  for (let i = 0; i < resArr.length; i += 2) {
+    sum += resArr[i] - resArr[i + 1];
+  }
+
+  return sum;
 }
 
 /**
