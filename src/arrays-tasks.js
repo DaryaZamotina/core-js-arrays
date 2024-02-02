@@ -21,8 +21,11 @@
  *    getIntervalArray(3, 3) => [ 3 ]
  */
 function getIntervalArray(start, end) {
-  const arr = Array.from({ length: end - start + 1 }, (v, i) => i + 1);
-  return arr;
+  const res = [];
+  for (let i = start; i <= end; i += 1) {
+    res.push(i);
+  }
+  return res;
 }
 
 /**
@@ -111,16 +114,19 @@ function findAllOccurrences(arr, item) {
  *    removeFalsyValues([ false, 0, NaN, '', undefined ]) => [ ]
  */
 function removeFalsyValues(arr) {
-  let arrNew = [];
-  arrNew = arr.map(
-    (elem) =>
+  const arrNew = [];
+  arr.forEach(function checkArr(elem) {
+    if (
       !Number.isNaN(elem) &&
       elem !== undefined &&
       elem !== null &&
       elem !== false &&
       elem !== 0 &&
       elem !== ''
-  );
+    ) {
+      arrNew.push(elem);
+    }
+  });
   return arrNew;
 }
 
