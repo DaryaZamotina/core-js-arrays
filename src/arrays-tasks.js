@@ -47,7 +47,7 @@ function sumArrays(arr1, arr2) {
   } else {
     len = arr2.length;
   }
-  for (let i = 0; i <= len; i += 1) {
+  for (let i = 0; i < len; i += 1) {
     const a = arr1[i] === undefined ? 0 : arr1[i];
     const b = arr2[i] === undefined ? 0 : arr2[i];
     arr.push(a + b);
