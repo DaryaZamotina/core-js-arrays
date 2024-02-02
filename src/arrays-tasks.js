@@ -159,13 +159,18 @@ function getStringsLength(arr) {
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
 function getAverage(arr) {
-  if (arr.length === 0) return 0;
   let res = 0;
   for (let i = 0; i < arr.length; i += 1) {
     res += arr[i];
   }
-  const result = res / arr.length;
-  return result.toFixed(2);
+  const result = res / arr.length || 0;
+  let finres;
+  if (Number.isInteger(result)) {
+    finres = result;
+  } else {
+    finres = result.toFixed(2);
+  }
+  return +finres;
 }
 
 /**
