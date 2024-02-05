@@ -185,7 +185,8 @@ function getAverage(arr) {
  */
 function isSameLength(arr) {
   const res = arr.map((str) => str.length);
-  return res.every((elem1, elem2) => elem1 === elem2);
+  const newSet = new Set(res);
+  return newSet.size === 1;
 }
 
 /**
@@ -200,8 +201,16 @@ function isSameLength(arr) {
  *    isValueEqualsIndex([10, 20, 30, 40, 50]) => false
  */
 function isValueEqualsIndex(arr) {
-  const arrEntries = arr.entries();
-  arrEntries.some((elem, index) => index === elem);
+  const pairs = [];
+  arr.forEach((elem, index) => {
+    pairs.push([elem, index]);
+  });
+  const sizeArr = [];
+  pairs.forEach((arr1) => {
+    const set = new Set(arr1);
+    sizeArr.push(set.size);
+  });
+  return sizeArr.includes(1);
 }
 
 /**
