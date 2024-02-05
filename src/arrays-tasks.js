@@ -201,16 +201,7 @@ function isSameLength(arr) {
  *    isValueEqualsIndex([10, 20, 30, 40, 50]) => false
  */
 function isValueEqualsIndex(arr) {
-  const pairs = [];
-  arr.forEach((elem, index) => {
-    pairs.push([elem, index]);
-  });
-  const sizeArr = [];
-  pairs.forEach((arr1) => {
-    const set = new Set(arr1);
-    sizeArr.push(set.size);
-  });
-  return sizeArr.includes(1);
+  return arr.some((elem, index) => index === elem);
 }
 
 /**
