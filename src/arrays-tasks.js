@@ -185,8 +185,8 @@ function getAverage(arr) {
  */
 function isSameLength(arr) {
   const res = arr.map((str) => str.length);
-  const newSet = new Set(res);
-  return newSet.size === 1;
+  const one = res[0];
+  return res.every((elem) => elem === one);
 }
 
 /**
