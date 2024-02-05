@@ -216,11 +216,8 @@ function isValueEqualsIndex(arr) {
  *    insertItem([ 1, 'b', 'c'], 'x', 0) => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-  const arrBegin = arr.slice(0, index);
-  const arrEnd = arr.slice(index);
-  const res1 = arrBegin.concat(item);
-  const res2 = res1.concat(arrEnd);
-  return res2;
+  const res = arr.toSpliced(index, 0, item);
+  return res;
 }
 
 /**
@@ -235,7 +232,7 @@ function insertItem(arr, item, index) {
  *    getHead([ 'a', 'b', 'c', 'd'], 0) => []
  */
 function getHead(arr, n) {
-  return arr.slice(0, n - 1);
+  return arr.slice(0, n);
 }
 
 /**
