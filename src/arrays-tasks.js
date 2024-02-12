@@ -647,38 +647,24 @@ function shiftArray(arr, n) {
  *   sortDigitNamesByNumericOrder([ 'nine','eight','nine','eight' ]) => [ 'eight','eight','nine','nine']
  *   sortDigitNamesByNumericOrder([ 'one','one','one','zero' ]) => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  /* if (arr = []) return [];
-  
-  function compare(obj) {
-  let obj = {
-    0: "zero", 
-    1: "one", 
-    2: "two", 
-    3: "three", 
-    4: "four", 
-    5: "five", 
-    6: "six", 
-    7: "seven", 
-    8: "eight", 
-    9: "nine", 
-  };
-
-  let keys = Object.keys(obj);
-  let values = Object.values(obj);
-
-  for (let key of keys) {
-    for (let elem of arr) {
-
-    }
+function sortDigitNamesByNumericOrder(arr) {
+  const arrNew = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+  ];
+  function sortArr(a, b) {
+    return arrNew.indexOf(a) - arrNew.indexOf(b);
   }
-}
-
- let result = [];
- result = arr.sort(compare());
-
- return result; */
-  throw new Error('Not implemented');
+  const result = arr.sort(sortArr);
+  return result;
 }
 
 /**
